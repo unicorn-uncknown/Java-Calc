@@ -1,44 +1,47 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        //Здеся сканеры
-        Scanner mainScanner = new Scanner(System.in);
-        //Да, уже ору
-        String yesOrNo = "y";
+        int arrLenght;
+        Random random = new Random();
 
-        //Здеся цикл
-        while(yesOrNo.equals("y")){
+        do {
+            //Тутачки сканер и дебаг
+            //System.out.println("Work! (0)");
+            Scanner mainScanner = new Scanner(System.in);
+            System.out.println("   ");  //Сие для красоты надо
+            System.out.println("Array lenght: ");
+            arrLenght = mainScanner.nextInt();
 
-            System.out.println("First number: ");
-            double firstNumber = mainScanner.nextDouble();
+            if (arrLenght >= 3){
+                //Тож дебаг
+                //System.out.println("Work! (1)");
 
-            System.out.println("Second number: ");
-            double secondNumber = mainScanner.nextDouble();
+                //Тутачки мутится массив
+                int[] numbers = new int[arrLenght];
 
-            System.out.println("Operation: ");
-            String operation = mainScanner.next();
+                for (int i = 0; i < numbers.length; i++) {
+                    numbers[i] = random.nextInt(arrLenght);
+                    System.out.print(numbers[i] + " ");
+                }
 
-            switch(operation) {
-                case "+":
-                    System.out.println(firstNumber + secondNumber); break;
-                case "-":
-                    System.out.println(firstNumber - secondNumber); break;
-                case "*":
-                    System.out.println(firstNumber * secondNumber); break;
-                case "/":
-                    System.out.println(firstNumber / secondNumber); break;
+
+                System.out.println("   ");  //Сие для красоты тожк надо
+                System.out.println("Chetnye:");
+
+                //Тутачки определяется четное число или нет
+                for(int i1 = 0; i1 < numbers.length; i1++){
+                    if ((numbers[i1] %2)==0) {
+                        System.out.print(numbers[i1] + " ");
+
+                    } } }else{
+
+                System.out.println("Wrong array lenght!");
             }
-            //Сообщение
-            System.out.println("Continue (y/n)?");
-            yesOrNo = mainScanner.next();
 
-        }
-        //Сообщение
-        System.exit(1);
-
+        } while(false == !true); //Офигел когда это писал
     }
-
 }
